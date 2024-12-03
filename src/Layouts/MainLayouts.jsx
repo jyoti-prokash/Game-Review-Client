@@ -6,11 +6,14 @@ import { Outlet } from 'react-router-dom';
 const MainLayouts = () => {
     return (
         <div>
-                <header className='bg-[#262626]'>
+            {/* bg-[#262626] */}
+                <header className=''>
                     <Navbar></Navbar>
                 </header>
                 <Outlet></Outlet>
+                <section>
                 <Footer></Footer>
+                </section>
         </div>
     );
 };

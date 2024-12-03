@@ -1,8 +1,16 @@
 import React from 'react';
 import logo from '../../assets/logo/pgk logo.jpg'
+import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
+    const links = <>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/allreviews">All Reviews</NavLink></li>
+            <li><NavLink to="/addreviews">Add Review</NavLink></li>
+            <li><NavLink to="/myreviews">My Review</NavLink></li>
+            <li><NavLink to="/watchlist">Game WatchList</NavLink></li>
+    </>
     return (
-        <div className="navbar container mx-auto text-white">
+        <div className="navbar container mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,38 +29,25 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+        className="menu menu-sm dropdown-content  rounded-box z-[50] mt-3 w-52 p-2 text-white">
+        {
+            links
+        }
       </ul>
     </div>
     <img className='w-20 rounded-full' src={logo} alt="pgk logo" />
-    <a className="ml-5 text-xl">ProGamerKash</a>
+    <a className="ml-5 text-xl font-bold">ProGamerKash</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+        {
+            links
+        }
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <Link to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5">Login</Link>
+    <Link to="/login" className="text-white font-bold btn   bg-gradient-to-r from-[#e1296f] to-[#f9493b]">Register</Link>
   </div>
 </div>
     );

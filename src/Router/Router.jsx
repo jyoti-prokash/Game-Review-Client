@@ -1,6 +1,12 @@
 import {createBrowserRouter} from "react-router-dom";
 import MainLayouts from "../Layouts/MainLayouts";
 import Home from "../Pages/Home";
+import AllReviews from "../Pages/AllReviews";
+import AddReviews from "../Layouts/AddReviews";
+import WatchList from "../Layouts/WatchList";
+import MyReviews from "../Layouts/MyReviews";
+import Login from "../Layouts/Login";
+
 
 const router = createBrowserRouter([
   {
@@ -12,7 +18,27 @@ const router = createBrowserRouter([
             element: <Home></Home>
         }
     ]
-  }
+  },
+  {
+    path: "/allreviews",
+    element: <AllReviews></AllReviews>
+  },
+  {
+    path: "/addreviews",
+    element: <AddReviews></AddReviews>
+  },
+  {
+    path: "/myreviews",
+    element: <MyReviews></MyReviews>
+  },
+  {
+    path: "/watchlist",
+    element: <WatchList></WatchList>
+  },
+  {
+    path: "/login",
+    element: <Login></Login>
+  },
   
 ]);
 
