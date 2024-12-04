@@ -7,9 +7,14 @@ const Navbar = () => {
     const links = <>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/allreviews">All Reviews</NavLink></li>
+            {
+            user && 
+            <> 
             <li><NavLink to="/addreviews">Add Review</NavLink></li>
             <li><NavLink to="/myreviews">My Review</NavLink></li>
             <li><NavLink to="/watchlist">Game WatchList</NavLink></li>
+            </>
+            }
     </>
     return (
         <div className="navbar container mx-auto">

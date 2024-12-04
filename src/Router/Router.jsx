@@ -8,6 +8,7 @@ import MyReviews from "../Layouts/MyReviews";
 import Login from "../Layouts/Login";
 import Register from "../Layouts/Register";
 import ErrorPage from "../Pages/ErrorPage";
+import PrivetRoute from "./PrivetRoute";
 
 
 const router = createBrowserRouter([
@@ -28,15 +29,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/addreviews",
-    element: <AddReviews></AddReviews>
+    element: <PrivetRoute><AddReviews></AddReviews></PrivetRoute>
   },
   {
     path: "/myreviews",
-    element: <MyReviews></MyReviews>
+    element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>
   },
   {
     path: "/watchlist",
-    element: <WatchList></WatchList>
+    element: <PrivetRoute><WatchList></WatchList></PrivetRoute>
   },
   {
     path: "/login",
