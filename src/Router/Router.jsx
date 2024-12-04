@@ -7,12 +7,14 @@ import WatchList from "../Layouts/WatchList";
 import MyReviews from "../Layouts/MyReviews";
 import Login from "../Layouts/Login";
 import Register from "../Layouts/Register";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts></MainLayouts>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
         {
             path: "/",

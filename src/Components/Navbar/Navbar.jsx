@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo/pgk logo.jpg'
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext);
     const links = <>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/allreviews">All Reviews</NavLink></li>
@@ -46,8 +48,22 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5">Login</Link>
-    <Link to="/register" className="text-white font-bold btn   bg-gradient-to-r from-[#e1296f] to-[#f9493b]">Register</Link>
+    {
+                        user ? 
+                        <div className='flex justify-center items-center gap-5'>
+                            <div className="avatar online">
+                                <div className="w-16 rounded-full">
+                                <Link><img src={user.photoURL} /></Link>     
+                                </div>
+                            </div>
+                            <button onClick={logOut} className="self-center px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>
+                        </div>
+                            :
+                            <div>
+                                <Link to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5">Login</Link>
+                                <Link to="/register" className="text-white font-bold btn bg-gradient-to-r from-[#e1296f] to-[#f9493b]">Register</Link>
+                            </div>
+                    }
   </div>
 </div>
     );
