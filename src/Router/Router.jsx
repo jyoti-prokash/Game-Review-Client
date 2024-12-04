@@ -6,6 +6,7 @@ import AddReviews from "../Layouts/AddReviews";
 import WatchList from "../Layouts/WatchList";
 import MyReviews from "../Layouts/MyReviews";
 import Login from "../Layouts/Login";
+import Register from "../Layouts/Register";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login></Login>
+  },
+  {
+    path: "/register",
+    element: <Register></Register>
   },
   
 ]);
