@@ -1,16 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import cover from '../assets/allcover/game2.jpg'
+import { AuthContext } from '../Provider/AuthProvider';
+// sweetAlert
+import Swal from 'sweetalert2'
+
 const AddReviews = () => {
-    // style={{backgroundImage: `url(${cover})`}}
+    const {user} = useContext(AuthContext);
+    const handleSubmit= (e) =>{
+      e.preventDefault()
+      const form = e.target;
+      const image = form.coverImage.value;
+      const title = form.gameTitle.value;
+      const description = form.reviewDescription.value;
+      const rating = form.rating.value;
+      const publish = form.publishingYear.value;
+      const genre = form.genre.value;
+      const addReview = {image,title,description,rating,publish,genre}
+      fetch('http://localhost:5000/addReview',{
+        method: 'POST',
+        headers: {
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(addReview)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+        if(data.insertedId){
+          Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Successfully review added",
+          showConfirmButton: false,
+          timer: 1500
+          });
+        }
+      })
+    }
     return (
         <div>
             <header><Navbar></Navbar></header>
-            <section style={{backgroundImage: `url(${cover})`}} className='bg-cover bg-center container mx-auto  text-white'>
+            <section style={{backgroundImage: `url(${cover})`}} className='bg-cover bg-center container mx-auto text-white my-8'>
             <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center">
-      <form className="max-w-4xl w-full p-6 bg-opacity-80 shadow-md rounded-md grid grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="max-w-4xl w-full p-6 bg-opacity-80 shadow-md rounded-md grid grid-cols-2 gap-6">
         <h2 className="col-span-2 text-2xl font-bold text-center text-white">
           Game Review Form
         </h2>
@@ -21,7 +56,7 @@ const AddReviews = () => {
             Game Cover Image/Thumbnail (URL)
           </label>
           <input
-            type="url"
+            type="text"
             id="coverImage"
             name="coverImage"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
@@ -119,7 +154,7 @@ const AddReviews = () => {
           <label className="block text-sm font-medium text-white">User Email</label>
           <input
             type="email"
-            value="user@example.com"
+            Value = { user.email }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 p-2 border bg-transparent cursor-not-allowed"
           />
@@ -130,7 +165,7 @@ const AddReviews = () => {
           <label className="block text-sm font-medium text-white">User Name</label>
           <input
             type="text"
-            value="John Doe"
+            Value = { user.displayName }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 cursor-not-allowed p-2 border bg-transparent"
           />
