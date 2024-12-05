@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
 import logo from '../../assets/logo/pgk logo.jpg'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
+  const navigate = useNavigate();
   const {user,logOut} = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+    navigate('/');
+  }
     const links = <>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/allreviews">All Reviews</NavLink></li>
@@ -61,7 +66,7 @@ const Navbar = () => {
                                 <Link><img src={user.photoURL} /></Link>     
                                 </div>
                             </div>
-                            <button onClick={logOut} className="self-center px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>
+                            <button onClick={handleLogOut} className="self-center px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>
                         </div>
                             :
                             <div>

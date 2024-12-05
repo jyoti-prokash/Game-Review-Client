@@ -19,7 +19,7 @@ const Register = () => {
             console.log(result.user);
 			const user = result.user
 			setUser(user)
-            toast.success('Successfully Registered');
+            toast.success(`Successfully Registered`);
             updateUserProfile({displayName:name,photoURL:photo})
             .then(()=>{
                 console.log('user profile update')})
