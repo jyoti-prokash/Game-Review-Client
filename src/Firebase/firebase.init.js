@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAshBEBzz-BPHYIZJaM_72wwvr18DTlWyk",
-  authDomain: "game-review-app-95101.firebaseapp.com",
-  projectId: "game-review-app-95101",
-  storageBucket: "game-review-app-95101.firebasestorage.app",
-  messagingSenderId: "680145364145",
-  appId: "1:680145364145:web:c6a098c4320f7863662e90",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
