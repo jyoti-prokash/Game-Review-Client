@@ -9,6 +9,7 @@ import Login from "../Layouts/Login";
 import Register from "../Layouts/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivetRoute from "./PrivetRoute";
+import ReviewDetails from "../Pages/ReviewDetails";
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
   {
     path: "/addreviews",
     element: <PrivetRoute><AddReviews></AddReviews></PrivetRoute>
+  },
+  {
+    path: "/review/:id",
+    element: <ReviewDetails></ReviewDetails>,
+    loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
   },
   {
     path: "/myreviews",

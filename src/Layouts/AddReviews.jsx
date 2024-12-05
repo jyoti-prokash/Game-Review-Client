@@ -17,7 +17,9 @@ const AddReviews = () => {
       const rating = form.rating.value;
       const publish = form.publishingYear.value;
       const genre = form.genre.value;
-      const addReview = {image,title,description,rating,publish,genre}
+      const name = form.name.value;
+      const email = form.email.value;
+      const addReview = {image,title,description,rating,publish,genre,name,email}
       fetch('http://localhost:5000/addReview',{
         method: 'POST',
         headers: {
@@ -153,7 +155,7 @@ const AddReviews = () => {
         <div className="col-span-2 sm:col-span-1">
           <label className="block text-sm font-medium text-white">User Email</label>
           <input
-            type="email"
+            type="email" name='email'
             Value = { user.email }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 p-2 border bg-transparent cursor-not-allowed"
@@ -164,7 +166,7 @@ const AddReviews = () => {
         <div className="col-span-2 sm:col-span-1">
           <label className="block text-sm font-medium text-white">User Name</label>
           <input
-            type="text"
+            type="text" name='name'
             Value = { user.displayName }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 cursor-not-allowed p-2 border bg-transparent"
