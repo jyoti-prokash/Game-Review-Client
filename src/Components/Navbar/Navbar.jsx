@@ -3,6 +3,7 @@ import logo from '../../assets/logo/pgk logo.jpg'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Theme from '../../Theme/Theme';
+import { Tooltip } from 'react-tooltip';
 const Navbar = () => {
   const navigate = useNavigate();
   const {user,logOut} = useContext(AuthContext);
@@ -64,9 +65,11 @@ const Navbar = () => {
     {
                         user ? 
                         <div className='flex justify-center items-center gap-5'>
+                          <Tooltip className='z-10' anchorSelect="#showTooltip" content={user.displayName}>
+                          </Tooltip>
                             <div className="avatar online">
                                 <div className="w-16 rounded-full">
-                                <Link><img src={user.photoURL} /></Link>     
+                                <Link><img id='showTooltip' src={user.photoURL} /></Link>     
                                 </div>
                             </div>
                             <button onClick={handleLogOut} className="self-center px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>

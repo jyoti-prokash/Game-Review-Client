@@ -137,7 +137,7 @@ const AddReviews = () => {
           <select
             id="genre"
             name="genre"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-gray-400"
             required
           >
             <option value="" disabled>
