@@ -9,10 +9,12 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <section>
+            <section className='my-10'>
                 <TypeScript></TypeScript>
             </section>
+            <section className='container mx-auto'>
             <RatedData ratedData={ratedData}></RatedData>
+            </section>
         </div>
     );
 };

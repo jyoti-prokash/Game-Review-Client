@@ -48,7 +48,7 @@ const Navbar = () => {
         }
       </ul>
     </div>
-    <img className='w-20 rounded-full' src={logo} alt="pgk logo" />
+    <img className='w-20 rounded-full hidden lg:block' src={logo} alt="pgk logo" />
     <a className="ml-5 text-xl font-bold">ProGamerKash</a>
   </div>
   <div className="navbar-center hidden lg:flex">

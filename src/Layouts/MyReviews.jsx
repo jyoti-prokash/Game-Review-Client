@@ -3,6 +3,9 @@ import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaDeleteLeft } from 'react-icons/fa6';
+import { FaRegEdit } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const MyReviews = () => {
     const myReviews = useLoaderData() 
@@ -14,6 +17,36 @@ const MyReviews = () => {
         setMyWatch(remaining)
     },[])
 
+    const handleDelete = (id) => {
+        Swal.fire({
+        title: "Are you sure?",
+        text: "You want to delete it?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/reviews/${id}`,{
+            method: "DELETE",
+        })
+        .then(res=> res.json())
+        .then(data =>{
+            // console.log(data);
+            if(data.deletedCount>0){
+                Swal.fire({
+            title: "Deleted!",
+            text: "Delete Successfully",
+            icon: "success"
+            });
+        const remainingDelete = myWatch.filter(r=>r._id  !==id)
+        setMyWatch(remainingDelete)
+            }
+        });
+        }
+        });
+    }
     return (
         <div>
             <header><Navbar></Navbar></header>
@@ -38,8 +71,8 @@ const MyReviews = () => {
         <td>{watchData.title}</td>
         <td>{watchData.publish}</td>
         <td>{watchData.genre}</td>
-        <td>Delete</td>
-        <td>Edit</td>
+        <td><button className='text-lg'><FaRegEdit /></button></td>
+        <td><button onClick={()=> handleDelete(watchData._id)} className='text-lg'><FaDeleteLeft /></button></td>
         </tr>
     )}
     </tbody>
