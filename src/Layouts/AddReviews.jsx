@@ -156,7 +156,7 @@ const AddReviews = () => {
           <label className="block text-sm font-medium text-white">User Email</label>
           <input
             type="email" name='email'
-            Value = { user.email }
+            value = { user.email }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 p-2 border bg-transparent cursor-not-allowed"
           />
@@ -167,7 +167,7 @@ const AddReviews = () => {
           <label className="block text-sm font-medium text-white">User Name</label>
           <input
             type="text" name='name'
-            Value = { user.displayName }
+            value = { user.displayName }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 cursor-not-allowed p-2 border bg-transparent"
           />

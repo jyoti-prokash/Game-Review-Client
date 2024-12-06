@@ -2,10 +2,37 @@ import { Link, useLoaderData } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
 import { FaBackward, FaStarHalfAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ReviewDetails = () => {
+
     const reviewData = useLoaderData();
     const {title,name,image,description,email,rating,publish,genre} = reviewData;
+
+    const watchListData = reviewData;
+    const handleWatchList = () =>{
+        fetch('http://localhost:5000/watchList', {
+            method: 'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(watchListData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Added WatchList",
+        showConfirmButton: false,
+        timer: 1500
+    });
+            }
+        })
+    }
+    
     return (
         <div>
             <header><Navbar></Navbar></header>
@@ -14,7 +41,7 @@ const ReviewDetails = () => {
                 <div className="lg:flex gap-10 justify-between">
                     <div className="space-y-3">
                         <img className="lg:w-[850px] lg:h-[400px]" src={image} alt="" />
-                        <button className="px-6 py-4 bg-gradient-to-r from-[#e1296f] to-[#f9493b] text-white font-bold">Add to WatchList</button>
+                        <button onClick={handleWatchList} className="px-6 py-4 bg-gradient-to-r from-[#e1296f] to-[#f9493b] text-white font-bold">Add to WatchList</button>
                 </div>
                 <div className="space-y-3 lg:w-5/6">
                         <h2 className="text-3xl lg:w-96 lg:text-4xl font-bold">{title}</h2>

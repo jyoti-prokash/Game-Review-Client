@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import logo from '../../assets/logo/pgk logo.jpg'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Theme from '../../Theme/Theme';
 const Navbar = () => {
   const navigate = useNavigate();
   const {user,logOut} = useContext(AuthContext);
@@ -12,14 +13,13 @@ const Navbar = () => {
     const links = <>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/allreviews">All Reviews</NavLink></li>
-            {
-            user && 
+            
             <> 
             <li><NavLink to="/addreviews">Add Review</NavLink></li>
             <li><NavLink to="/myreviews">My Review</NavLink></li>
             <li><NavLink to="/watchlist">Game WatchList</NavLink></li>
             </>
-            }
+            
     </>
     return (
         <div className="navbar container mx-auto">
@@ -58,6 +58,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+    <div className='mr-3'>
+        <Theme></Theme>
+    </div>
     {
                         user ? 
                         <div className='flex justify-center items-center gap-5'>

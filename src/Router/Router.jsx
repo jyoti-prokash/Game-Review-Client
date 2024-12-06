@@ -35,16 +35,18 @@ const router = createBrowserRouter([
   },
   {
     path: "/review/:id",
-    element: <ReviewDetails></ReviewDetails>,
+    element: <PrivetRoute><ReviewDetails></ReviewDetails></PrivetRoute>,
     loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
   },
   {
     path: "/myreviews",
-    element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>
+    element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>,
+    loader: ()=> fetch('http://localhost:5000/reviews')
   },
   {
     path: "/watchlist",
-    element: <PrivetRoute><WatchList></WatchList></PrivetRoute>
+    element: <PrivetRoute><WatchList></WatchList></PrivetRoute>,
+    loader: () => fetch('http://localhost:5000/watch')
   },
   {
     path: "/login",

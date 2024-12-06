@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
     // google auth login
     const googleProvider = new GoogleAuthProvider()
     const googleLogin = () =>{
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
         
     };
@@ -36,13 +37,15 @@ const AuthProvider = ({ children }) => {
     // creating auth State change by email pass
     useEffect(()=>{
        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            if(currentUser){
-                setUser(currentUser)
-                setLoading(false)
-            }
-            else{
-                setUser(null)
-            }
+        setUser(currentUser);
+        setLoading(false);
+            // if(currentUser){
+            //     setUser(currentUser)
+            //     setLoading(false)
+            // }
+            // else{
+            //     setUser(null)
+            // }
         })
         return unsubscribe;
     },[]);

@@ -16,7 +16,6 @@ const Register = () => {
         const password = e.target.password.value;
         createUser(email,password)
         .then(result => {
-            console.log(result.user);
 			const user = result.user
 			setUser(user)
             toast.success(`Successfully Registered`);
