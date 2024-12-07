@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FaDeleteLeft } from 'react-icons/fa6';
 import { FaRegEdit } from 'react-icons/fa';
@@ -62,7 +62,7 @@ const MyReviews = () => {
         <th>Genre</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody className='animate__animated animate__fadeInLeft'>
         {
         myWatch.map((watchData,index) =>
         <tr key={watchData._id} className="hover hover:text-red-600">
@@ -71,7 +71,7 @@ const MyReviews = () => {
         <td>{watchData.title}</td>
         <td>{watchData.publish}</td>
         <td>{watchData.genre}</td>
-        <td><button className='text-lg'><FaRegEdit /></button></td>
+        <td><Link to={`/update/${watchData._id}`}><button className='text-lg'><FaRegEdit /></button></Link></td>
         <td><button onClick={()=> handleDelete(watchData._id)} className='text-lg'><FaDeleteLeft /></button></td>
         </tr>
     )}

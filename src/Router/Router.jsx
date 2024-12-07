@@ -10,6 +10,7 @@ import Register from "../Layouts/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivetRoute from "./PrivetRoute";
 import ReviewDetails from "../Pages/ReviewDetails";
+import UpdateReviews from "../Components/UpdateReviews";
 
 
 const router = createBrowserRouter([
@@ -45,9 +46,9 @@ const router = createBrowserRouter([
     loader: ()=> fetch('http://localhost:5000/reviews')
   },
   {
-    path: "/watchlist",
+    path: "/watch",
     element: <PrivetRoute><WatchList></WatchList></PrivetRoute>,
-    loader: () => fetch('http://localhost:5000/watch')
+    loader: () => fetch('http://localhost:5000/watchList')
   },
   {
     path: "/login",
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register></Register>
   },
+  {
+    path: "/update/:id",
+    element: <UpdateReviews></UpdateReviews>,
+    loader: ({params})=> fetch(`http://localhost:5000/review/${params.id}`)
+  }
   
 ]);
 

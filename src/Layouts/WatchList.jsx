@@ -1,18 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
 
 const WatchList = () => {
     const watchListData = useLoaderData()
     const [watch, setWatch] = useState(watchListData)
-    const {user} = useContext(AuthContext)
-
-    useEffect(()=>{
-        const remaining = watchListData.filter(w=> w.email ==user.email)
-        setWatch(remaining)
-    },[])
 
     return (
         <div>

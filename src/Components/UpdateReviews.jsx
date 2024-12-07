@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
-import Navbar from '../Components/Navbar/Navbar';
-import Footer from '../Components/Footer/Footer';
-import cover from '../assets/allcover/game2.jpg'
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
+import Swal from 'sweetalert2';
+import cover from '../assets/allcover/coverreviews.jpg'
 import { AuthContext } from '../Provider/AuthProvider';
-// sweetAlert
-import Swal from 'sweetalert2'
+import { Link, useLoaderData } from 'react-router-dom';
+import { FaBackward } from 'react-icons/fa6';
 
-const AddReviews = () => {
+const UpdateReviews = () => {
     const {user} = useContext(AuthContext);
-    const handleSubmit= (e) =>{
+    const loadData = useLoaderData()
+    const {image,title,description,rating,publish,genre, _id} = loadData;
+    
+    const handleUpdate= (e) =>{
       e.preventDefault()
       const form = e.target;
       const image = form.coverImage.value;
@@ -20,8 +24,8 @@ const AddReviews = () => {
       const name = form.name.value;
       const email = form.email.value;
       const addReview = {image,title,description,rating,publish,genre,name,email}
-      fetch('http://localhost:5000/addReview',{
-        method: 'POST',
+      fetch(`http://localhost:5000/update/${_id}`,{
+        method: 'PATCH',
         headers: {
           'content-type':'application/json'
         },
@@ -30,11 +34,11 @@ const AddReviews = () => {
       .then(res=>res.json())
       .then(data=>{
         console.log(data);
-        if(data.insertedId){
+        if(data.modifiedCount>0){
           Swal.fire({
           position: "top-center",
           icon: "success",
-          title: "Successfully review added",
+          title: "Successfully review update",
           showConfirmButton: false,
           timer: 1500
           });
@@ -44,12 +48,13 @@ const AddReviews = () => {
     return (
         <div>
             <header><Navbar></Navbar></header>
+                <Link to="/myreviews"><button className="ml-44 mb-5 px-6 btn py-2 font-extrabold text-xl"><FaBackward /></button></Link>
             <section style={{backgroundImage: `url(${cover})`}} className='bg-cover bg-center container mx-auto text-white my-8'>
             <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="max-w-4xl w-full p-6 bg-opacity-80 shadow-md rounded-md grid grid-cols-2 gap-6">
+      <form onSubmit={handleUpdate} className="max-w-4xl w-full p-6 bg-opacity-80 shadow-md rounded-md grid grid-cols-2 gap-6">
         <h2 className="col-span-2 text-2xl font-bold text-center text-white">
-          Game Review Form
+          Update your Form
         </h2>
 
         {/* Game Cover Image */}
@@ -59,7 +64,7 @@ const AddReviews = () => {
           </label>
           <input
             type="text"
-            id="coverImage"
+            id="coverImage" defaultValue={image}
             name="coverImage"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
             placeholder="Enter image URL"
@@ -74,7 +79,7 @@ const AddReviews = () => {
           </label>
           <input
             type="text"
-            id="gameTitle"
+            id="gameTitle" defaultValue={title}
             name="gameTitle"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
             placeholder="Enter game title"
@@ -88,7 +93,7 @@ const AddReviews = () => {
             Review Description
           </label>
           <textarea
-            id="reviewDescription"
+            id="reviewDescription" defaultValue={description}
             name="reviewDescription"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
             rows="4"
@@ -104,7 +109,7 @@ const AddReviews = () => {
           </label>
           <input
             type="number"
-            id="rating"
+            id="rating" defaultValue={rating}
             name="rating"
             min="1"
             max="9"
@@ -120,7 +125,7 @@ const AddReviews = () => {
             Publishing Year
           </label>
           <input
-            type="number"
+            type="number" defaultValue={publish}
             id="publishingYear"
             name="publishingYear"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
@@ -135,7 +140,7 @@ const AddReviews = () => {
             Genre
           </label>
           <select
-            id="genre"
+            id="genre" defaultValue={genre}
             name="genre"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-gray-400"
             required
@@ -147,6 +152,7 @@ const AddReviews = () => {
             <option value="RPG">RPG</option>
             <option value="Adventure">Adventure</option>
             <option value="Sports">Sports</option>
+            <option value="Puzzle">Puzzle</option>
           </select>
         </div>
 
@@ -155,7 +161,7 @@ const AddReviews = () => {
           <label className="block text-sm font-medium text-white">User Email</label>
           <input
             type="email" name='email'
-            value = { user.email }
+            value = { user?.email }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 p-2 border bg-transparent cursor-not-allowed"
           />
@@ -166,7 +172,7 @@ const AddReviews = () => {
           <label className="block text-sm font-medium text-white">User Name</label>
           <input
             type="text" name='name'
-            value = { user.displayName }
+            value = { user?.displayName }
             readOnly
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 cursor-not-allowed p-2 border bg-transparent"
           />
@@ -178,7 +184,7 @@ const AddReviews = () => {
             type="submit"
             className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            Submit
+            Update
           </button>
         </div>
       </form>
@@ -191,4 +197,4 @@ const AddReviews = () => {
     );
 };
 
-export default AddReviews;
+export default UpdateReviews;

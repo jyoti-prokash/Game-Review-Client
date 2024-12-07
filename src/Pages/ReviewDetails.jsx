@@ -7,11 +7,11 @@ import Swal from "sweetalert2";
 const ReviewDetails = () => {
 
     const reviewData = useLoaderData();
-    const {title,name,image,description,email,rating,publish,genre} = reviewData;
-
-    const watchListData = reviewData;
+    const {_id,title,name,image,description,email,rating,publish,genre} = reviewData;
+    console.log(reviewData);
+    const watchListData = {title,name,image,description,email,rating,publish,genre};
     const handleWatchList = () =>{
-        fetch('http://localhost:5000/watchList', {
+        fetch(`http://localhost:5000/watchList`, {
             method: 'POST',
             headers:{
                 'content-type':'application/json'
