@@ -75,9 +75,13 @@ const Navbar = () => {
                             <button onClick={handleLogOut} className="self-center px-2 lg:px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>
                         </div>
                             :
-                            <div>
-                                <Link to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5 px-6">Login</Link>
-                                <Link to="/register" className="text-white font-bold btn bg-gradient-to-r from-[#e1296f] to-[#f9493b]">Register</Link>
+                            <div className='flex'>
+                                <Link>
+                                  <button to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5 px-6">Login</button>
+                                </Link>
+                                <Link to="/register">
+                                  <button className="text-white font-bold btn bg-gradient-to-r from-[#e1296f] to-[#f9493b]">Register</button>
+                                </Link>
                             </div>
                     }
   </div>
