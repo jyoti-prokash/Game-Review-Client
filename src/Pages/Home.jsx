@@ -10,7 +10,9 @@ const Home = () => {
     const ratedData = useLoaderData();
     return (
         <div>
+            <section>
             <Banner></Banner>
+            </section>
             <section className='my-10'>
                 <TypeScript></TypeScript>
             </section>

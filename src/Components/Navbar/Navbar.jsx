@@ -42,14 +42,14 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content  rounded-box z-[50] mt-3 w-52 p-2 text-white">
+        className="menu menu-sm dropdown-content  rounded-box bg-red-400 z-[50] mt-3 w-52 p-2 text-white">
         {
             links
         }
       </ul>
     </div>
     <img className='w-20 rounded-full hidden lg:block' src={logo} alt="pgk logo" />
-    <Link to="/" className="ml-5 text-xl font-bold">ProGamerKash</Link>
+    <Link to="/" className="lg:ml-5 text-xl font-bold">ProGamerKash</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -63,7 +63,6 @@ const Navbar = () => {
         <Theme></Theme>
     </div>
     {
-      
                         user ? 
                         <div className='flex justify-center items-center gap-5'>
                           <Tooltip className='z-10' anchorSelect="#showTooltip" content={user.displayName}>
@@ -73,11 +72,11 @@ const Navbar = () => {
                                 <Link><img id='showTooltip' src={user.photoURL} /></Link>     
                                 </div>
                             </div>
-                            <button onClick={handleLogOut} className="self-center px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>
+                            <button onClick={handleLogOut} className="self-center px-2 lg:px-8 py-3 font-semibold rounded bg-gradient-to-r from-[#e1296f] to-[#f9493b] dark:text-gray-50">Log Out</button>
                         </div>
                             :
                             <div>
-                                <Link to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5">Login</Link>
+                                <Link to="/login" className=" font-bold btn bg-[#2b3440] text-white mr-5 px-6">Login</Link>
                                 <Link to="/register" className="text-white font-bold btn bg-gradient-to-r from-[#e1296f] to-[#f9493b]">Register</Link>
                             </div>
                     }
