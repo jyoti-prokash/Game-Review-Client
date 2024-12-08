@@ -35,14 +35,15 @@ const Register = () => {
             toast.success(`Successfully Registered`);
             updateUserProfile({displayName:name,photoURL:photo})
             .then(()=>{
-                console.log('user profile update')})
+                // console.log('user profile update')
+			})
                 navigate('/')
             .catch(()=>{
-                console.log('error profile');
+                // console.log('error profile');
             })
         })
         .catch(error=>{
-            console.log(error.message);
+            // console.log(error.message);
         })
     }
 	const googleUserLogin = () =>{

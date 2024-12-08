@@ -4,6 +4,7 @@ import TypeScript from '../Components/TypeScript';
 import { useLoaderData } from 'react-router-dom';
 import RatedData from '../Components/RatedData';
 import LatesGaming from '../Components/LatesGaming';
+import News from '../Components/News';
 
 const Home = () => {
     const ratedData = useLoaderData();
@@ -17,6 +18,7 @@ const Home = () => {
             <RatedData ratedData={ratedData}></RatedData>
             </section>
             <section className='my-12'><LatesGaming></LatesGaming></section>
+            <section><News></News></section>
         </div>
     );
 };

@@ -12,7 +12,6 @@ import PrivetRoute from "./PrivetRoute";
 import ReviewDetails from "../Pages/ReviewDetails";
 import UpdateReviews from "../Components/UpdateReviews";
 
-
 const router = createBrowserRouter([
   {
     path: "/",

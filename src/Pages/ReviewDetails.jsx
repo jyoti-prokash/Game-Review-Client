@@ -8,7 +8,6 @@ const ReviewDetails = () => {
 
     const reviewData = useLoaderData();
     const {_id,title,name,image,description,email,rating,publish,genre} = reviewData;
-    console.log(reviewData);
     const watchListData = {title,name,image,description,email,rating,publish,genre};
     const handleWatchList = () =>{
         fetch(`http://localhost:5000/watchList`, {
@@ -20,7 +19,6 @@ const ReviewDetails = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             if(data.insertedId){
                 Swal.fire({
         position: "top-center",

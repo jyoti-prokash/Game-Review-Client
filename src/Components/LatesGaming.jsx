@@ -3,6 +3,7 @@ import new1 from  '../assets/release/new2.jpg'
 import new2 from  '../assets/release/blur2.png'
 import 'animate.css';
 import "animate.css/animate.compat.css"
+import { Link } from 'react-router-dom';
 const LatesGaming = () => {
     return (
         <div style={{backgroundImage: `url(${new2})`}} className='lg:flex bg-cover bg-center justify-evenly items-center py-40 px-5 text-white'>
@@ -19,6 +20,7 @@ const LatesGaming = () => {
                     <button className='px-8 py-4 hover:text-black border-red-500 border-2 hover:bg-red-500 text-white font-bold'>Download Now</button>
                 </a>
                 </div>
+                <Link to='/addreviews'><button className='text-yellow-500 text-xl mt-3 font-bold border-b-2 hover:bg- py-3'>Click on Reviews</button></Link>
             </div>
             <div>
                 <img className='mt-10 w-[700px] animate__animated animate__backInRight animate__delay-2s' src={new1} alt="" />
