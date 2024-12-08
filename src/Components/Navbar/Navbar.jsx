@@ -49,7 +49,7 @@ const Navbar = () => {
       </ul>
     </div>
     <img className='w-20 rounded-full hidden lg:block' src={logo} alt="pgk logo" />
-    <a className="ml-5 text-xl font-bold">ProGamerKash</a>
+    <Link to="/" className="ml-5 text-xl font-bold">ProGamerKash</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -63,6 +63,7 @@ const Navbar = () => {
         <Theme></Theme>
     </div>
     {
+      
                         user ? 
                         <div className='flex justify-center items-center gap-5'>
                           <Tooltip className='z-10' anchorSelect="#showTooltip" content={user.displayName}>

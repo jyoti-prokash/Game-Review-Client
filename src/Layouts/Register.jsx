@@ -4,9 +4,10 @@ import Footer from '../Components/Footer/Footer';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-    const {createUser, updateUserProfile, setUser, googleLogin} = useContext(AuthContext);
+    const {createUser, updateUserProfile, setUser, googleLogin,setErrorText} = useContext(AuthContext);
     const navigate = useNavigate()
     const handleRegister = (e) => {
         e.preventDefault()
@@ -14,6 +15,19 @@ const Register = () => {
         const email = e.target.email.value;
         const photo = e.target.photo.value;
         const password = e.target.password.value;
+		// validation password
+		
+		const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/
+        if (!passwordRegex.test(password)){
+            // setErrorText('password must have an Uppercase,a Lowercase & must be at least 6 character.')
+			return Swal.fire({
+  			icon: "error",
+ 			title: "Oops...",
+  			text: "password must have an Uppercase,a Lowercase & must be at least 6 character.",
+			});
+            
+        }
+		// create new user
         createUser(email,password)
         .then(result => {
 			const user = result.user

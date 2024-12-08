@@ -3,15 +3,15 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.init";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
-    // const navigate = useNavigate()
+
     const [user, setUser] = useState(null);
+    const [errorText, setErrorText] = useState('')
     const [loading, setLoading] = useState(true);
     // google auth login
     const googleProvider = new GoogleAuthProvider()
     const googleLogin = () =>{
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
-        
     };
     // creating new user by email pass
     const createUser = (email,password) => {
@@ -39,13 +39,6 @@ const AuthProvider = ({ children }) => {
        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
         setUser(currentUser);
         setLoading(false);
-            // if(currentUser){
-            //     setUser(currentUser)
-            //     setLoading(false)
-            // }
-            // else{
-            //     setUser(null)
-            // }
         })
         return unsubscribe;
     },[]);
@@ -57,7 +50,9 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         logOut,
         googleLogin,
-        loading
+        loading,
+        errorText,
+        setErrorText
     }
     return (
         <AuthContext.Provider value={userInfo}>

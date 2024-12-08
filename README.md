@@ -10,14 +10,16 @@ ProGamerKash - Your ultimate destination for honest and detailed game reviews. E
 
 Live link: 
 
-NPM Packages :
-<li><a href="https://react-tooltip.com/" target="_blank">React Tooltip</a></li>
-<li><a href="https://www.npmjs.com/package/react-simple-typewriter" target="_blank">React Simple Typewriter</a></li>
-<li><a href="https://animate.style/" target="_blank">Animate.css</a></li>
-<li><a href="https://sweetalert2.github.io/" target="_blank">SweetAlert2</a></li>
-<li><a href="https://fkhadra.github.io/react-toastify/" target="_blank">React Toastify</a></li>
-<li><a href="https://swiperjs.com/" target="_blank">Swiper</a></li>
-<li><a href="https://react-icons.github.io/react-icons/" target="_blank">React Icons</a></li>
+<h2>NPM Packages :</h2>
+<ul>    
+        <li><a href="https://react-tooltip.com/" target="_blank">React Tooltip</a></li>
+        <li><a href="https://www.npmjs.com/package/react-simple-typewriter" target="_blank">React Simple Typewriter</a></li>
+        <li><a href="https://animate.style/" target="_blank">Animate.css</a></li>
+        <li><a href="https://sweetalert2.github.io/" target="_blank">SweetAlert2</a></li>
+        <li><a href="https://fkhadra.github.io/react-toastify/" target="_blank">React Toastify</a></li>
+        <li><a href="https://swiperjs.com/" target="_blank">Swiper</a></li>
+        <li><a href="https://react-icons.github.io/react-icons/" target="_blank">React Icons</a></li>
+</ul>
 
 <h2>Frontend Technologies Used</h2>
     <ul>
@@ -26,8 +28,9 @@ NPM Packages :
         <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> (Utility-first CSS framework)</li>
     </ul>
 
-Backend Technologies Used:
-
- <li><a href="https://firebase.google.com/" target="_blank">Firebase</a> (Authentication System)</li>
-<li><a href="https://expressjs.com/" target="_blank">Express.js</a> (Backend Technology)</li>
-<li><a href="https://www.mongodb.com/atlas" target="_blank">MongoDB Atlas</a> (Database)</li>
+<h2> Backend Technologies Used </h2>
+<ul>
+        <li><a href="https://firebase.google.com/" target="_blank">Firebase</a> (Authentication System)</li>
+        <li><a href="https://expressjs.com/" target="_blank">Express.js</a> (Backend Technology)</li>
+        <li><a href="https://www.mongodb.com/atlas" target="_blank">MongoDB Atlas</a> (Database)</li>
+</ul>

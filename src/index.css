@@ -15,3 +15,9 @@
     --body_color: white;
     --link_color: cyan;
 }
+
+.active{
+    background-color: #e24562 !important;
+    font-size: medium;
+    color: #fff;
+}

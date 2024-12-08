@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
 	const location = useLocation()
-	const {loginUser, googleLogin} = useContext(AuthContext);
+	const {loginUser, googleLogin,errorText, setErrorText} = useContext(AuthContext);
 	const navigate = useNavigate();
 	const handleLogin = (e) =>{
 		e.preventDefault();
@@ -15,11 +15,12 @@ const Login = () => {
 		const password = e.target.password.value;
 		loginUser(email, password)
 		.then(result => {
+			console.log(result);
 			toast.success('Welcome')
 			navigate(location?.state ? location.state : "/");
 		})
-		.then(error=>{
-			console.log(error.message);
+		.catch((error)=>{
+			toast.error('Error email or password',error.message);
 		})
 	}
 	const googleUserLogin = () => {
@@ -46,6 +47,7 @@ const Login = () => {
 			<div className="flex justify-end text-xs dark:text-gray-600">
 				<a rel="noopener noreferrer" href="#">Forgot Password?</a>
 			</div>
+		
 		</div>
 		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Log in</button>
 	</form>
