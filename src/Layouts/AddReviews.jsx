@@ -20,7 +20,7 @@ const AddReviews = () => {
       const name = form.name.value;
       const email = form.email.value;
       const addReview = {image,title,description,rating,publish,genre,name,email}
-      fetch('http://localhost:5000/addReview',{
+      fetch('https://assignment-10-server-seven-iota.vercel.app/addReview',{
         method: 'POST',
         headers: {
           'content-type':'application/json'

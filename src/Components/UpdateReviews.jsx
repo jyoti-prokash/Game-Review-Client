@@ -24,7 +24,7 @@ const UpdateReviews = () => {
       const name = form.name.value;
       const email = form.email.value;
       const addReview = {image,title,description,rating,publish,genre,name,email}
-      fetch(`http://localhost:5000/update/${_id}`,{
+      fetch(`https://assignment-10-server-seven-iota.vercel.app/update/${_id}`,{
         method: 'PATCH',
         headers: {
           'content-type':'application/json'

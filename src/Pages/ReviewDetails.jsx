@@ -10,7 +10,7 @@ const ReviewDetails = () => {
     const {_id,title,name,image,description,email,rating,publish,genre} = reviewData;
     const watchListData = {title,name,image,description,email,rating,publish,genre};
     const handleWatchList = () =>{
-        fetch(`http://localhost:5000/watchList`, {
+        fetch(`https://assignment-10-server-seven-iota.vercel.app/watchList`, {
             method: 'POST',
             headers:{
                 'content-type':'application/json'

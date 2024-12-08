@@ -21,14 +21,14 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/ratedData')
+            loader: () => fetch('https://assignment-10-server-seven-iota.vercel.app/ratedData')
         }
     ]
   },
   {
     path: "/allreviews",
     element: <AllReviews></AllReviews>,
-    loader: () => fetch('http://localhost:5000/reviews')
+    loader: () => fetch('https://assignment-10-server-seven-iota.vercel.app/reviews')
   },
   {
     path: "/addreviews",
@@ -37,17 +37,17 @@ const router = createBrowserRouter([
   {
     path: "/review/:id",
     element: <PrivetRoute><ReviewDetails></ReviewDetails></PrivetRoute>,
-    loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+    loader: ({params}) => fetch(`https://assignment-10-server-seven-iota.vercel.app/review/${params.id}`)
   },
   {
     path: "/myreviews",
     element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>,
-    loader: ()=> fetch('http://localhost:5000/reviews')
+    loader: ()=> fetch('https://assignment-10-server-seven-iota.vercel.app/reviews')
   },
   {
     path: "/watch",
     element: <PrivetRoute><WatchList></WatchList></PrivetRoute>,
-    loader: () => fetch('http://localhost:5000/watchList')
+    loader: () => fetch('https://assignment-10-server-seven-iota.vercel.app/watchList')
   },
   {
     path: "/login",
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
   {
     path: "/update/:id",
     element: <UpdateReviews></UpdateReviews>,
-    loader: ({params})=> fetch(`http://localhost:5000/review/${params.id}`)
+    loader: ({params})=> fetch(`https://assignment-10-server-seven-iota.vercel.app/review/${params.id}`)
   }
   
 ]);

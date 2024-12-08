@@ -8,7 +8,7 @@ ProGamerKash - Your ultimate destination for honest and detailed game reviews. E
 - **Search and Filter**: Easily find games by genre, platform, or release date.  
 - **User Accounts**: Create profiles to post reviews, save favorites, and interact with the community. 
 
-Live link: 
+Live link: https://game-review-app-95101.web.app/
 
 <h2>NPM Packages :</h2>
 <ul>    
