@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 import RatedData from '../Components/RatedData';
 import LatesGaming from '../Components/LatesGaming';
 import News from '../Components/News';
+import FAQ from '../Components/FAQ/FAQ';
 
 const Home = () => {
     const ratedData = useLoaderData();
@@ -21,6 +22,7 @@ const Home = () => {
             </section>
             <section className='my-12'><LatesGaming></LatesGaming></section>
             <section><News></News></section>
+            <section><FAQ></FAQ></section>
         </div>
     );
 };

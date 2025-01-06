@@ -6,7 +6,7 @@ import "animate.css/animate.compat.css"
 import { Link } from 'react-router-dom';
 const LatesGaming = () => {
     return (
-        <div style={{backgroundImage: `url(${new2})`}} className='lg:flex bg-cover bg-center justify-evenly items-center py-40 px-5 text-white'>
+        <div style={{backgroundImage: `url(${new2})`}} className='lg:flex bg-cover bg-center justify-between items-center py-36 px-5 text-white lg:px-44'>
             <div className='space-y-5 animate__animated animate__backInLeft animate__delay-2s'>
                 <h1 className='text-3xl lg:text-5xl font-extrabold'>NEW RELEASED!</h1>
                 <p className='font bold text-xl'>Indiana Jones and the Great Circle (2024) </p>

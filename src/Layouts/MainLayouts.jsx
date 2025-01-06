@@ -7,7 +7,7 @@ const MainLayouts = () => {
     return (
         <div>
             {/* bg-[#262626] */}
-                <header className=''>
+                <header className='pb-16 lg:pb-28'>
                     <Navbar></Navbar>
                 </header>
                 <Outlet></Outlet>

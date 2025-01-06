@@ -12,12 +12,14 @@
 
 [data-theme="dark"]{
     --body_background: #282c34;
+    color: white;
     --body_color: white;
     --link_color: cyan;
 }
 
 .active{
-    background-color: #e24562 !important;
-    font-size: medium;
+    /* background-color: #e24562 !important; */
+    background-color: black !important;
+    font-size: 18px;
     color: #fff;
 }

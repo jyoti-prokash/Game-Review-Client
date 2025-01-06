@@ -42,8 +42,7 @@ const AddReviews = () => {
     }
     return (
         <div>
-            <header><Navbar></Navbar></header>
-            <section style={{backgroundImage: `url(${cover})`}} className='bg-cover bg-center container mx-auto text-white my-8'>
+            <section style={{backgroundImage: `url(${cover})`}} className='bg-cover bg-center container mx-auto text-white'>
             <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center">
       <form onSubmit={handleSubmit} className="max-w-4xl w-full p-6 bg-opacity-80 shadow-md rounded-md grid grid-cols-2 gap-6">
@@ -183,9 +182,6 @@ const AddReviews = () => {
       </form>
     </div>
             </section>
-            <footer>
-                <Footer></Footer>
-            </footer>
         </div>
     );
 };
