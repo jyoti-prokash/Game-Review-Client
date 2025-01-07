@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="mt-8 lg:mt-[72px]">
       <>
         <Swiper
           spaceBetween={30}

@@ -10,17 +10,17 @@ import FAQ from '../Components/FAQ/FAQ';
 const Home = () => {
     const ratedData = useLoaderData();
     return (
-        <div>
+        <div className='space-y-10'>
             <section>
             <Banner></Banner>
             </section>
-            <section className='my-10'>
+            <section>
                 <TypeScript></TypeScript>
             </section>
             <section className='container mx-auto'>
             <RatedData ratedData={ratedData}></RatedData>
             </section>
-            <section className='my-12'><LatesGaming></LatesGaming></section>
+            <section><LatesGaming></LatesGaming></section>
             <section><News></News></section>
             <section><FAQ></FAQ></section>
         </div>

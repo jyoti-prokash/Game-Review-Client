@@ -26,7 +26,7 @@ const AllReviews = () => {
 
     return (
       <div>
-        <section className="container mx-auto my-10">
+        <section className="container mx-auto">
           {/* sorting year/rating */}
           <div className="flex">
             <div className="dropdown">

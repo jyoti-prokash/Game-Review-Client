@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const ReviewCard = ({card}) => {
     const {title,image,rating,_id,publish,genre} = card;
@@ -11,16 +12,13 @@ const ReviewCard = ({card}) => {
             <img className="rounded-xl lg:h-[250px]" src={image} alt="" />
           </div>
           <div>
-            <h1 className="text-xl font-bold">
+            <h1 className="text-lg font-bold">
               {title} <span className="badge badge-secondary">{publish}</span>
             </h1>
             <div>
               <p className="font-semibold my-2">{genre}</p>
               <p className="text-base font-medium my-2">
-                Rating: {rating}{" "}
-                <span className="inline-block">
-                  <FaStar />
-                </span>
+                <Rating style={{ maxWidth: 110 }} value={rating} readOnly />
               </p>
             </div>
             <div className="flex justify-end">

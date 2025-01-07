@@ -52,7 +52,7 @@ const MyReviews = () => {
   };
   return (
     <div>
-      <section className="container mx-auto my-10">
+      <section className="container mx-auto">
         <table className="table">
           {/* head */}
           <thead>

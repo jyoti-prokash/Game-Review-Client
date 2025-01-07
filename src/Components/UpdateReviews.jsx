@@ -9,7 +9,6 @@ const UpdateReviews = () => {
   const { user } = useContext(AuthContext);
   const loadData = useLoaderData();
   const { image, title, description, rating, publish, genre, _id } = loadData;
-
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -134,7 +133,7 @@ const UpdateReviews = () => {
                 htmlFor="rating"
                 className="block text-sm font-medium text-white"
               >
-                Rating (1-9)
+                Rating (1-5)
               </label>
               <input
                 type="number"
@@ -142,7 +141,7 @@ const UpdateReviews = () => {
                 defaultValue={rating}
                 name="rating"
                 min="1"
-                max="9"
+                max="5"
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
                 placeholder="Enter rating"
                 required

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import logo from "../../assets/logo/pgk logo.jpg";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Theme from "../../Theme/Theme";
 import { Tooltip } from "react-tooltip";
@@ -8,6 +8,7 @@ import "./Navbar.css"
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
+  const location = useLocation();
   const handleLogOut = () => {
     logOut();
     navigate("/");
@@ -42,7 +43,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar lg:px-20 fixed z-50 bg-opacity-70 bg-[#ffffff00] lg:py-4">
+    <div
+      className={`navbar lg:px-44 lg:py-4 ${
+        location.pathname === "/" && "fixed z-50 bg-opacity-70 bg-white"
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

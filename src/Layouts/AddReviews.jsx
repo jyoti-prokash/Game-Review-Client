@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import Navbar from '../Components/Navbar/Navbar';
-import Footer from '../Components/Footer/Footer';
 import cover from '../assets/allcover/game2.jpg'
 import { AuthContext } from '../Provider/AuthProvider';
 // sweetAlert
@@ -98,14 +96,14 @@ const AddReviews = () => {
         {/* Rating */}
         <div className="col-span-2 sm:col-span-1">
           <label htmlFor="rating" className="block text-sm font-medium text-white">
-            Rating (1-9)
+            Rating (1-5)
           </label>
           <input
             type="number"
             id="rating"
             name="rating"
             min="1"
-            max="9"
+            max="5"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border bg-transparent"
             placeholder="Enter rating"
             required

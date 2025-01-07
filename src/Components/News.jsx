@@ -4,7 +4,7 @@ import cover2 from "../assets/allcover/header.jpg";
 import cover3 from "../assets/allcover/images (1).jpg";
 const News = () => {
   return (
-    <div className="container mx-auto mb-10">
+    <div className="container mx-auto">
       <h1 className="text-3xl font-bold text-center my-5">Latest News</h1>
       <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
         <div className="card bg-base-100 shadow-xl">

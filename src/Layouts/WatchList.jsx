@@ -9,7 +9,7 @@ const WatchList = () => {
 
   return (
     <div>
-      <section className="container mx-auto my-10">
+      <section className="container mx-auto">
         <div>
           <h2 className="text-center text-2xl font-bold">WatchList</h2>
           <div className="overflow-x-auto">
