@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <div
       className={`navbar lg:px-44 lg:py-4 ${
-        location.pathname === "/" && "fixed z-50 bg-opacity-70 bg-white"
+        location.pathname === "/" && "fixed z-50 bg-opacity-30 bg-white backdrop-blur-sm"
       }`}
     >
       <div className="navbar-start">

@@ -7,7 +7,7 @@ const ReviewCard = ({card}) => {
     const {title,image,rating,_id,publish,genre} = card;
     return (
       <div>
-        <div className="p-2 shadow-xl  rounded-2xl lg:w-[350px] lg:h-[450px] mx-auto">
+        <div className="p-2 shadow-xl  rounded-2xl lg:w-[380px] lg:h-[420px] mx-auto">
           <div>
             <img className="rounded-xl lg:h-[250px]" src={image} alt="" />
           </div>
