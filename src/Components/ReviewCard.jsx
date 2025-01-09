@@ -9,7 +9,7 @@ const ReviewCard = ({card}) => {
       <div>
         <div className="p-2 shadow-xl  rounded-2xl lg:w-[380px] lg:h-[420px] mx-auto">
           <div>
-            <img className="rounded-xl lg:h-[250px]" src={image} alt="" />
+            <img className="rounded-xl lg:h-[250px] object-cover" src={image} alt="" />
           </div>
           <div>
             <h1 className="text-lg font-bold">
